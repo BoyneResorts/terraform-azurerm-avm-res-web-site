@@ -413,6 +413,12 @@ resource "azurerm_windows_function_app" "this" {
       update = timeouts.value.update
     }
   }
+
+  lifecycle {
+    ignore_changes = [
+      app_settings
+    ]
+  }
 }
 
 # resource "azapi_update_resource" "windows_functionapp" {
@@ -856,6 +862,12 @@ resource "azurerm_linux_function_app" "this" {
       read   = timeouts.value.read
       update = timeouts.value.update
     }
+  }
+
+  lifecycle {
+    ignore_changes = [
+      app_settings
+    ]
   }
 }
 
