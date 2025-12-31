@@ -423,11 +423,13 @@ variable "deployment_slots" {
         virtual_path = optional(string, "/")
         })),
         {
-          default = {
-            physical_path   = "site\\wwwroot"
-            preload_enabled = false
-            virtual_path    = "/"
-          }
+          # Removing default, as provider issue needing workaround has been resolved.
+          # https://github.com/hashicorp/terraform-provider-azurerm/issues/16326
+          # default = {
+          #   physical_path   = "site\\wwwroot"
+          #   preload_enabled = false
+          #   virtual_path    = "/"
+          # }
         }
       )
     }), {})
